@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.gx.dao.NoteDao">
+    <select id="getList" resultType="top.gx.entity.Note">
+        SELECT t1.*
+        FROM t_note t1 WHERE t1.deleted = 0
+        <if test="title != null and title.trim() != ''">
+            AND t1.title LIKE CONCAT('%', #{title}, '%')
+        </if>
+    </select>
+</mapper>

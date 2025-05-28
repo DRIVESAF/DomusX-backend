@@ -1,0 +1,4 @@
+auth:
+  ignore_urls:
+    - /api/category/list
+    - /api/note/page
