@@ -67,6 +67,29 @@ public class DeviceServiceImpl  extends BaseServiceImpl<DeviceDao, Device> imple
                 .build();
         mqttOutboundChannel.send(message);
     }
+
+    @Override
+    public void sendCommand(String deviceId, String command, Integer value) {
+        QueryWrapper<Device> query = new QueryWrapper<>();
+        query.eq("device_id", deviceId);
+        Device device = this.getOne(query);
+        if (device == null) {
+            throw new ServerException("设备不存在");
+        }
+        //构建JSON命令
+        Map<String, Object> map = new HashMap<>();
+        map.put("deviceId", deviceId);
+        map.put("command", command);
+        if (value != null) {
+            map.put("value", value);
+        }
+        String payload = JSON.toJSONString(map);
+        Message<String> message = MessageBuilder.withPayload(payload)
+                .setHeader("mqtt_topic", "iot/device/control")
+                .build();
+        mqttOutboundChannel.send(message);
+    }
+
     //处理状态上报
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public void handleStatusMessage(Message<?> message) {

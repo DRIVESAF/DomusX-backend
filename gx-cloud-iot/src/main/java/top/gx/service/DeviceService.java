@@ -18,4 +18,6 @@ public interface DeviceService extends BaseService<Device> {
      * @param command 命令
      */
     void sendCommand(String deviceId, String command);
+
+    void sendCommand(String deviceId, String command, Integer value);
 }
