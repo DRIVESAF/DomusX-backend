@@ -24,8 +24,11 @@ import top.gx.service.DeviceDataService;
 import top.gx.service.DeviceService;
 import top.gx.vo.DeviceVO;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Arrays;
 
 /**
  * @author Lenovo
@@ -101,7 +104,7 @@ public class DeviceServiceImpl extends BaseServiceImpl<DeviceDao, Device> implem
 
             log.info("设备状态更新成功: {} -> {}", deviceId, status);
 
-            // 自动保存所有设备数据
+            // 保存所有设备数据字段
             for (String key : json.keySet()) {
                 // 跳过device_id和status字段，因为这些是设备基本信息
                 if ("device_id".equals(key) || "status".equals(key)) {
@@ -109,32 +112,14 @@ public class DeviceServiceImpl extends BaseServiceImpl<DeviceDao, Device> implem
                 }
 
                 String value = json.getString(key);
-                String unit = getUnitForKey(key); // 根据key获取对应的单位
-                log.info("保存设备数据: deviceId={}, key={}, value={}, unit={}",
-                        device.getId(), key, value, unit);
-                deviceDataService.saveDeviceData(device.getId(), key, value, unit);
+                log.info("保存设备数据: deviceId={}, key={}, value={}", 
+                    device.getId(), key, value);
+                deviceDataService.saveDeviceData(device.getId(), key, value, "");
             }
 
             log.info("设备数据保存完成: {}", deviceId);
         } catch (Exception e) {
             log.error("处理设备数据失败: {}", payload, e);
         }
-    }
-
-    /**
-     * 根据数据key获取对应的单位
-     */
-    private String getUnitForKey(String key) {
-        // 可以根据实际需求配置不同key对应的单位
-        Map<String, String> unitMap = new HashMap<>();
-        unitMap.put("temperature", "℃");
-        unitMap.put("humidity", "%");
-        unitMap.put("brightness", "lux");
-        unitMap.put("power", "W");
-        unitMap.put("voltage", "V");
-        unitMap.put("current", "A");
-        // 可以继续添加其他key的单位映射
-
-        return unitMap.getOrDefault(key, "");
     }
 }
