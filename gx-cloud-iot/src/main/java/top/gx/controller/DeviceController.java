@@ -49,12 +49,8 @@ public class DeviceController {
 
     @PostMapping("/control")
     @Operation(summary = "发送控制命令")
-    public Result<String> sendCommand(@RequestParam String deviceId, @RequestParam String command, @RequestParam(required = false) Integer value) {
-        if (value != null) {
-            deviceService.sendCommand(deviceId, command, value);
-        } else {
-            deviceService.sendCommand(deviceId, command);
-        }
+    public Result<String> sendCommand(@RequestParam String deviceId, @RequestParam String command) {
+        deviceService.sendCommand(deviceId, command);
         return Result.ok("指令发送成功！");
     }
 }
