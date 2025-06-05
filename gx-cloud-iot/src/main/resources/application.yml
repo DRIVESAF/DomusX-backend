@@ -25,3 +25,9 @@ mqtt:
   password: public
   clientId: springboot-server
   defaultTopic: iot/device/#
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: top.gx.entity
+  mapper-locations: classpath*:/mapper/**/*.xml
