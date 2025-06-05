@@ -28,7 +28,6 @@ import java.util.Map;
 public class LightServiceImpl implements LightService {
     private final DeviceService deviceService;
     private final MessageChannel mqttOutboundChannel;
-    private final LightServiceImpl lightServiceImpl;
 
     @Override
     public void sendCommand(String deviceId, String command, Integer value) {
@@ -52,37 +51,37 @@ public class LightServiceImpl implements LightService {
 
     @Override
     public Result<String> setLightThreshold(String deviceId, Integer value) {
-        lightServiceImpl.sendCommand(deviceId,"setLightThreshold",value);
+        sendCommand(deviceId,"setLightThreshold",value);
         return Result.ok("阈值设置成功");
     }
 
     @Override
     public Result<String> setColor(String deviceId, Integer value) {
-        lightServiceImpl.sendCommand(deviceId,"setColor",value);
+        sendCommand(deviceId,"setColor",value);
         return Result.ok("灯光颜色设置成功");
     }
 
     @Override
     public Result<String> setSwitch(String deviceId, Integer value) {
-        lightServiceImpl.sendCommand(deviceId,"setSwitch",value);
+        sendCommand(deviceId,"setSwitch",value);
         return Result.ok("电源设置成功");
     }
 
     @Override
     public Result<String> setSound(String deviceId, Integer value) {
-        lightServiceImpl.sendCommand(deviceId,"setSound",value);
+        sendCommand(deviceId,"setSound",value);
         return Result.ok("声控模式设置成功");
     }
 
     @Override
     public Result<String> setLight(String deviceId, Integer value) {
-        lightServiceImpl.sendCommand(deviceId,"setLight",value);
+        sendCommand(deviceId,"setLight",value);
         return Result.ok("光控模式设置成功");
     }
 
     @Override
     public Result<String> setAuto(String deviceId, Integer value) {
-        lightServiceImpl.sendCommand(deviceId,"setAuto",value);
+        sendCommand(deviceId,"setAuto",value);
         return Result.ok("设置自动模式设置成功");
     }
 }

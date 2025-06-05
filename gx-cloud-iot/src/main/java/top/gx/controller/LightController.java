@@ -14,7 +14,7 @@ import top.gx.service.LightService;
  * @author Lenovo
  */
 @RestController
-@RequestMapping("api/light")
+@RequestMapping("api/light/control")
 @Tag(name = "智能灯控制")
 @AllArgsConstructor
 public class LightController {
@@ -39,14 +39,20 @@ public class LightController {
     }
 
     @PostMapping("/setLightSensor")
-    @Operation(summary = "设置声控模式")
+    @Operation(summary = "设置光控模式")
     public Result<String> setLightSensor(@RequestParam String deviceId, @RequestParam Integer value) {
         return lightService.setLight(deviceId, value);
     }
 
-    @PostMapping("/setLightSensor")
-    @Operation(summary = "设置声控模式")
+    @PostMapping("/setAutoMode")
+    @Operation(summary = "设置自动模式")
     public Result<String> setAutoMode(@RequestParam String deviceId, @RequestParam Integer value) {
         return lightService.setAuto(deviceId, value);
+    }
+
+    @PostMapping("/setColor")
+    @Operation(summary = "设置灯光颜色")
+    public Result<String> setColor(@RequestParam String deviceId, @RequestParam Integer value) {
+        return lightService.setColor(deviceId, value);
     }
 }
