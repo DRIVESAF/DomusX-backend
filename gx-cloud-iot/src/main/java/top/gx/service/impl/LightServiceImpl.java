@@ -28,10 +28,6 @@ import java.util.Map;
 public class LightServiceImpl implements LightService {
     private final DeviceService deviceService;
     private final MessageChannel mqttOutboundChannel;
-<<<<<<< HEAD
-=======
-    private final LightServiceImpl lightServiceImpl;
->>>>>>> 10f2d49 (灯光模块编写)
 
     @Override
     public void sendCommand(String deviceId, String command, Integer value) {
@@ -55,61 +51,37 @@ public class LightServiceImpl implements LightService {
 
     @Override
     public Result<String> setLightThreshold(String deviceId, Integer value) {
-<<<<<<< HEAD
         sendCommand(deviceId,"setLightThreshold",value);
-=======
-        lightServiceImpl.sendCommand(deviceId,"setLightThreshold",value);
->>>>>>> 10f2d49 (灯光模块编写)
         return Result.ok("阈值设置成功");
     }
 
     @Override
     public Result<String> setColor(String deviceId, Integer value) {
-<<<<<<< HEAD
         sendCommand(deviceId,"setColor",value);
-=======
-        lightServiceImpl.sendCommand(deviceId,"setColor",value);
->>>>>>> 10f2d49 (灯光模块编写)
         return Result.ok("灯光颜色设置成功");
     }
 
     @Override
     public Result<String> setSwitch(String deviceId, Integer value) {
-<<<<<<< HEAD
         sendCommand(deviceId,"setSwitch",value);
-=======
-        lightServiceImpl.sendCommand(deviceId,"setSwitch",value);
->>>>>>> 10f2d49 (灯光模块编写)
         return Result.ok("电源设置成功");
     }
 
     @Override
     public Result<String> setSound(String deviceId, Integer value) {
-<<<<<<< HEAD
         sendCommand(deviceId,"setSound",value);
-=======
-        lightServiceImpl.sendCommand(deviceId,"setSound",value);
->>>>>>> 10f2d49 (灯光模块编写)
         return Result.ok("声控模式设置成功");
     }
 
     @Override
     public Result<String> setLight(String deviceId, Integer value) {
-<<<<<<< HEAD
         sendCommand(deviceId,"setLight",value);
-=======
-        lightServiceImpl.sendCommand(deviceId,"setLight",value);
->>>>>>> 10f2d49 (灯光模块编写)
         return Result.ok("光控模式设置成功");
     }
 
     @Override
     public Result<String> setAuto(String deviceId, Integer value) {
-<<<<<<< HEAD
         sendCommand(deviceId,"setAuto",value);
-=======
-        lightServiceImpl.sendCommand(deviceId,"setAuto",value);
->>>>>>> 10f2d49 (灯光模块编写)
         return Result.ok("设置自动模式设置成功");
     }
 }
