@@ -20,7 +20,7 @@ spring:
       - optional:nacos:common.yaml
 
 mqtt:
-  brokerUrl: tcp://8.147.232.206:1883
+  brokerUrl: tcp://124.223.143.202:1883
   username: admin
   password: public
   clientId: springboot-server
