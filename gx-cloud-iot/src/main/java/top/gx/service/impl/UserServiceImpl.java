@@ -10,8 +10,11 @@ import top.gx.entity.UserDevice;
 import top.gx.mapper.UserDeviceMapper;
 import top.gx.service.DeviceService;
 import top.gx.service.UserService;
+import top.gx.vo.DeviceVO;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Lenovo
@@ -26,9 +29,6 @@ public class UserServiceImpl extends ServiceImpl<UserDeviceMapper,UserDevice> im
 
     @Override
     public void bindDevice(Long deviceId,Long userId) {
-//        QueryWrapper<Device> query = new QueryWrapper<>();
-//        query.eq("device_id", deviceId);
-//        Device device = deviceService.getOne(query);
         Device device = deviceService.getById(deviceId);
         if (device == null) {
             throw new RuntimeException("设备不存在");
@@ -48,13 +48,52 @@ public class UserServiceImpl extends ServiceImpl<UserDeviceMapper,UserDevice> im
         userDevice.setDeleteFlag(0);
         userDevice.setCreateTime(LocalDateTime.now());
 
-        // 插入记录
-//        int result = userDeviceMapper.insert(userDevice);
         if (!save(userDevice)) {
             throw new RuntimeException("设备绑定失败");
         }
-//        if (result <= 0) {
-//            throw new RuntimeException("绑定设备失败");
-//        }
+    }
+
+    @Override
+    public List<DeviceVO> getDevicesByUser(Long userId) {
+        // 查询用户所有未删除的设备关联记录
+        QueryWrapper<UserDevice> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId)
+                .eq("delete_flag", 0);
+        List<UserDevice> userDevices = userDeviceMapper.selectList(queryWrapper);
+
+        // 根据设备ID查询设备信息
+        List<DeviceVO> deviceVOS = new ArrayList<>();
+        for (UserDevice userDevice : userDevices) {
+            Device device = deviceService.getById(userDevice.getDeviceId());
+            if (device != null) {
+                DeviceVO deviceVO = new DeviceVO();
+                deviceVO.setId(device.getId());
+                deviceVO.setDeviceId(device.getDeviceId());
+                deviceVO.setName(device.getName());
+                deviceVO.setType(device.getType());
+                deviceVO.setStatus(device.getStatus());
+                deviceVO.setCreateTime(device.getCreateTime());
+                deviceVOS.add(deviceVO);
+            }
+        }
+        return deviceVOS;
+    }
+
+    @Override
+    public void unBindDevice(Long deviceId, Long userId) {
+        // 查询用户与设备的关联记录
+        QueryWrapper<UserDevice> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId)
+                .eq("device_id", deviceId)
+                .eq("delete_flag", 0);
+        UserDevice userDevice = userDeviceMapper.selectOne(queryWrapper);
+
+        if (userDevice == null) {
+            throw new RuntimeException("设备未绑定或已解绑");
+        }
+
+        // 更新delete_flag为1
+        userDevice.setDeleteFlag(1);
+        userDeviceMapper.updateById(userDevice);
     }
 }
