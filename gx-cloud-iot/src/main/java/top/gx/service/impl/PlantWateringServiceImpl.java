@@ -9,8 +9,10 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
+import top.gx.dao.DeviceDataDao;
 import top.gx.dao.DeviceThresholdRuleDao;
 import top.gx.entity.Device;
+import top.gx.entity.DeviceData;
 import top.gx.entity.DeviceThresholdRule;
 import top.gx.framework.common.exception.ServerException;
 import top.gx.framework.common.utils.Result;
@@ -30,6 +32,7 @@ public class PlantWateringServiceImpl implements PlantWateringService {
   private final DeviceService deviceService;
   private final MessageChannel mqttOutboundChannel;
   private final DeviceThresholdRuleDao deviceThresholdRuleDao;
+  private final DeviceDataDao deviceDataDao;
 
   @Override
   public Result<String> setWateringThreshold(String deviceId, float threshold) {
@@ -158,5 +161,46 @@ public class PlantWateringServiceImpl implements PlantWateringService {
     }
 
     return Result.ok(null);
+  }
+
+  @Override
+  public Result<Object> getLatestTemperatureAndHumidity(String deviceId) {
+    // 检查设备是否存在
+    QueryWrapper<Device> query = new QueryWrapper<>();
+    query.eq("device_id", deviceId);
+    Device device = deviceService.getOne(query);
+    if (device == null) {
+      throw new ServerException("设备不存在");
+    }
+
+    // 获取最新的温度数据
+    QueryWrapper<DeviceData> tempQuery = new QueryWrapper<>();
+    tempQuery.eq("device_id", device.getId())
+        .eq("data_key", "temperature")
+        .orderByDesc("record_time")
+        .last("LIMIT 1");
+    DeviceData tempData = deviceDataDao.selectOne(tempQuery);
+
+    // 获取最新的湿度数据
+    QueryWrapper<DeviceData> humidityQuery = new QueryWrapper<>();
+    humidityQuery.eq("device_id", device.getId())
+        .eq("data_key", "humidity")
+        .orderByDesc("record_time")
+        .last("LIMIT 1");
+    DeviceData humidityData = deviceDataDao.selectOne(humidityQuery);
+
+    Map<String, Object> result = new HashMap<>();
+    if (tempData != null) {
+      result.put("temperature", tempData.getDataValue());
+      result.put("temperatureUnit", "℃");
+      result.put("temperatureTime", tempData.getRecordTime());
+    }
+    if (humidityData != null) {
+      result.put("humidity", humidityData.getDataValue());
+      result.put("humidityUnit", "%");
+      result.put("humidityTime", humidityData.getRecordTime());
+    }
+
+    return Result.ok(result);
   }
 }

@@ -36,4 +36,12 @@ public interface PlantWateringService {
    * @param deviceId 设备ID
    */
   Result<Object> getWateringStatus(String deviceId);
+
+  /**
+   * 获取设备最新温度和湿度数据
+   * 
+   * @param deviceId 设备ID
+   * @return 包含温度和湿度数据的Map
+   */
+  Result<Object> getLatestTemperatureAndHumidity(String deviceId);
 }
