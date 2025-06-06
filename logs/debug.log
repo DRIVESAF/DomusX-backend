@@ -6824,3 +6824,192 @@
 2025-06-06 13:39:25.478 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
 2025-06-06 13:39:25.478 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
 2025-06-06 13:39:25.479 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:39:55.533 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:39:55.533 [boundedElastic-51] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:39:55.533 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:39:55.534 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:39:55.535 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:39:55.536 [boundedElastic-57] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:40:25.613 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:40:25.613 [boundedElastic-55] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:40:25.613 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:40:25.614 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:40:25.615 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:40:25.616 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:40:25.616 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:40:25.616 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:40:25.616 [boundedElastic-51] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:40:55.684 [boundedElastic-59] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:40:55.684 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:40:55.685 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:55.685 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:40:55.685 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:40:55.685 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:55.685 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:40:55.685 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:40:55.686 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:55.686 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:40:55.686 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:40:55.686 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:55.687 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:40:55.687 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:40:55.687 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:55.687 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:40:55.687 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:40:55.687 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:40:55.688 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:40:55.689 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:41:25.788 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:41:25.788 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:25.789 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:41:25.789 [boundedElastic-62] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:41:25.789 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:41:25.789 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:25.789 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:41:25.789 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:41:25.791 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:25.791 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:41:25.791 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:41:25.791 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:25.791 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:41:25.792 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:41:25.792 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:25.792 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:41:25.792 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:41:25.792 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:25.793 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:41:25.793 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:41:25.793 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:41:25.793 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:41:25.793 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:41:25.794 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:41:25.794 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:41:25.794 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:41:25.794 [boundedElastic-36] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:41:55.859 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:41:55.859 [boundedElastic-62] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:41:55.861 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:55.861 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:41:55.861 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:41:55.861 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:55.862 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:41:55.863 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:41:55.864 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:41:55.864 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:41:55.864 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:41:55.864 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:41:55.864 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:41:55.864 [boundedElastic-60] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:42:25.927 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:42:25.927 [boundedElastic-55] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:42:25.927 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:42:25.928 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:42:25.930 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:42:25.931 [boundedElastic-48] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
+2025-06-06 13:42:55.984 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying {pattern=/maku-cloud-new/**} to Path
+2025-06-06 13:42:55.984 [boundedElastic-62] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 9
+2025-06-06 13:42:55.984 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-new applying filter {regexp=/maku-cloud-new/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:55.984 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-new
+2025-06-06 13:42:55.984 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying {pattern=/maku-cloud-gateway/**} to Path
+2025-06-06 13:42:55.984 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-gateway applying filter {regexp=/maku-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-gateway
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying {pattern=/gx-cloud-iot/**} to Path
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-iot applying filter {regexp=/gx-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-iot
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying {pattern=/gx-cloud-user/**} to Path
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-user applying filter {regexp=/gx-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-user
+2025-06-06 13:42:55.985 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying {pattern=/gx-cloud-gateway/**} to Path
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_gx-cloud-gateway applying filter {regexp=/gx-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_gx-cloud-gateway
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying {pattern=/maku-cloud-system/**} to Path
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_maku-cloud-system applying filter {regexp=/maku-cloud-system/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_maku-cloud-system
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-content
+2025-06-06 13:42:55.987 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-user applying {_genkey_0=/**} to Path
+2025-06-06 13:42:55.988 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-user
+2025-06-06 13:42:55.988 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-06 13:42:55.988 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition gx-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-06 13:42:55.988 [boundedElastic-61] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: gx-cloud-iot
