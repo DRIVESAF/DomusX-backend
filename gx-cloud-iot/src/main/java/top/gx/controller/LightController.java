@@ -14,7 +14,7 @@ import top.gx.service.LightService;
  * @author Lenovo
  */
 @RestController
-@RequestMapping("api/light/control")
+@RequestMapping("/api/light/control")
 @Tag(name = "智能灯控制")
 @AllArgsConstructor
 public class LightController {
