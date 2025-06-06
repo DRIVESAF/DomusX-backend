@@ -30,7 +30,7 @@ public class UserDeviceController {
         return Result.ok();
     }
 
-    @PostMapping("/getAll")
+    @GetMapping("/getAll")
     @Operation(summary = "查询用户绑定的所有设备")
     public Result<List<DeviceVO>> getAllByUserId(@RequestParam Long userId) {
         List<DeviceVO> devices = userService.getDevicesByUser(userId);

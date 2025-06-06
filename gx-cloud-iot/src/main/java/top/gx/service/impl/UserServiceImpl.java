@@ -92,8 +92,7 @@ public class UserServiceImpl extends ServiceImpl<UserDeviceMapper,UserDevice> im
             throw new RuntimeException("设备未绑定或已解绑");
         }
 
-        // 更新delete_flag为1
-        userDevice.setDeleteFlag(1);
-        userDeviceMapper.updateById(userDevice);
+        // 删除该条记录
+        userDeviceMapper.deleteById(userDevice.getId());
     }
 }
