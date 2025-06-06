@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.gx.dao.NewsDao">
+    <select id="getList" resultType="top.gx.entity.News">
+        SELECT id, title, content, update_time, view_count, cover_image, source
+        FROM t_news
+        WHERE deleted = 0 AND status = 1
+        ORDER BY update_time DESC
+    </select>
+</mapper>
