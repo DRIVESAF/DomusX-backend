@@ -40,4 +40,10 @@ public class PlantWateringController {
   public Result<Object> getStatus(@RequestParam String deviceId) {
     return plantWateringService.getWateringStatus(deviceId);
   }
+
+  @GetMapping("/environment")
+  @Operation(summary = "获取最新温度和湿度数据")
+  public Result<Object> getLatestTemperatureAndHumidity(@RequestParam String deviceId) {
+    return plantWateringService.getLatestTemperatureAndHumidity(deviceId);
+  }
 }
