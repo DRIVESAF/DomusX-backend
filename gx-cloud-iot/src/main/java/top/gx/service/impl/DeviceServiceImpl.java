@@ -20,19 +20,26 @@ import top.gx.framework.common.exception.ServerException;
 import top.gx.framework.common.utils.PageResult;
 import top.gx.framework.mybatis.service.impl.BaseServiceImpl;
 import top.gx.query.DeviceQuery;
+import top.gx.service.DeviceDataService;
 import top.gx.service.DeviceService;
 import top.gx.vo.DeviceVO;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Arrays;
+
 /**
  * @author Lenovo
  */
 @Service
 @Slf4j
 @AllArgsConstructor
-public class DeviceServiceImpl  extends BaseServiceImpl<DeviceDao, Device> implements DeviceService{
+public class DeviceServiceImpl extends BaseServiceImpl<DeviceDao, Device> implements DeviceService {
     private final MessageChannel mqttOutboundChannel;
+    private final DeviceDataService deviceDataService;
+
     @Override
     public PageResult<DeviceVO> page(DeviceQuery query) {
         Map<String, Object> params = getParams(query);
@@ -42,6 +49,7 @@ public class DeviceServiceImpl  extends BaseServiceImpl<DeviceDao, Device> imple
         return new PageResult<>(DeviceConvert.INSTANCE.convertList(list),
                 page.getTotal());
     }
+
     private Map<String, Object> getParams(DeviceQuery query) {
         Map<String, Object> params = new HashMap<>();
         params.put("name", query.getName());
@@ -49,6 +57,7 @@ public class DeviceServiceImpl  extends BaseServiceImpl<DeviceDao, Device> imple
         params.put("status", query.getStatus());
         return params;
     }
+
     @Override
     public void sendCommand(String deviceId, String command) {
         QueryWrapper<Device> query = new QueryWrapper<>();
@@ -57,7 +66,7 @@ public class DeviceServiceImpl  extends BaseServiceImpl<DeviceDao, Device> imple
         if (device == null) {
             throw new ServerException("设备不存在");
         }
-        //构建JSON命令
+        // 构建JSON命令
         Map<String, Object> map = new HashMap<>();
         map.put("deviceId", deviceId);
         map.put("command", command);
@@ -67,22 +76,50 @@ public class DeviceServiceImpl  extends BaseServiceImpl<DeviceDao, Device> imple
                 .build();
         mqttOutboundChannel.send(message);
     }
-    //处理状态上报
+
+    // 处理状态上报
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public void handleStatusMessage(Message<?> message) {
         String payload = message.getPayload().toString();
+        log.info("收到MQTT消息: {}", payload);
         try {
             JSONObject json = JSON.parseObject(payload);
             String deviceId = json.getString("device_id");
-            Boolean status = json.getBoolean("status");
-            //更新数据库状态
+            String status = json.getString("status");
+
+            log.info("解析设备ID: {}, 状态: {}", deviceId, status);
+
+            // 更新数据库状态
             UpdateWrapper<Device> updateWrapper = new UpdateWrapper<>();
             updateWrapper.eq("device_id", deviceId)
-                    .set("status", status);
-            baseMapper.update(null, updateWrapper);
-            log.info("设备状态更新: {} -> {}", deviceId, status);
+                    .set("status", "on".equals(status));
+            Device device = baseMapper.update(null, updateWrapper) > 0
+                    ? getOne(new QueryWrapper<Device>().eq("device_id", deviceId))
+                    : null;
+
+            if (device == null) {
+                log.error("设备不存在: {}", deviceId);
+                return;
+            }
+
+            log.info("设备状态更新成功: {} -> {}", deviceId, status);
+
+            // 保存所有设备数据字段
+            for (String key : json.keySet()) {
+                // 跳过device_id和status字段，因为这些是设备基本信息
+                if ("device_id".equals(key) || "status".equals(key)) {
+                    continue;
+                }
+
+                String value = json.getString(key);
+                log.info("保存设备数据: deviceId={}, key={}, value={}", 
+                    device.getId(), key, value);
+                deviceDataService.saveDeviceData(device.getId(), key, value, "");
+            }
+
+            log.info("设备数据保存完成: {}", deviceId);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("处理设备数据失败: {}", payload, e);
         }
     }
 }
