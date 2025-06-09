@@ -18,7 +18,7 @@ public class UserDTO implements Serializable {
     private String username;
     @Schema(description = "密码", required = true)
     private String password;
-    @Schema(description = "昵称", required = true)
+    @Schema(description = "昵称")
     private String nickname;
     @Schema(description = "头像")
     private String avatar;

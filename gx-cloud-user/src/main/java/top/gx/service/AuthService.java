@@ -2,6 +2,7 @@ package top.gx.service;
 
 import top.gx.dto.AccountLoginDTO;
 import top.gx.dto.MobileLoginDTO;
+import top.gx.dto.UserRegisterDTO;
 import top.gx.vo.AccountLoginVO;
 import top.gx.vo.MobileLoginVO;
 
@@ -27,4 +28,5 @@ public interface AuthService {
      * @param accessToken accessToken
      */
     void logout(String accessToken);
+    MobileLoginVO register(UserRegisterDTO user);
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import top.gx.convert.UserConvert;
 import top.gx.dto.AccountLoginDTO;
 import top.gx.dto.MobileLoginDTO;
+import top.gx.dto.UserRegisterDTO;
 import top.gx.entity.UserEntity;
 import top.gx.framework.common.exception.ServerException;
 import top.gx.framework.security.cache.TokenStoreCache;
@@ -58,15 +59,16 @@ public class AuthServiceImpl implements AuthService {
     public MobileLoginVO loginByMobile(MobileLoginDTO login) {
         UserVO userVO = userService.getByMobile(login.getMobile());
         if (userVO == null) {
-            UserEntity entity = UserConvert.INSTANCE.convert(login);
-            entity.setUsername(login.getMobile());
-            entity.setPassword(passwordEncoder.encode("123456"));
-            entity.setNickname("新用户");
-            entity.setAvatar("https://mqxu-oss.oss-cn-hangzhou.aliyuncs.com/avatar/1.jpg");
-            userService.save(entity);
-
-            // 保存后重新获取用户信息
-            userVO = userService.getByMobile(login.getMobile());
+            throw new ServerException("用户未注册");
+//            UserEntity entity = UserConvert.INSTANCE.convert(login);
+//            entity.setUsername(login.getMobile());
+//            entity.setPassword(passwordEncoder.encode("123456"));
+//            entity.setNickname("新用户");
+//            entity.setAvatar("https://mqxu-oss.oss-cn-hangzhou.aliyuncs.com/avatar/1.jpg");
+//            userService.save(entity);
+//
+//            // 保存后重新获取用户信息
+//            userVO = userService.getByMobile(login.getMobile());
         }
         Authentication authentication;
         try {
@@ -92,5 +94,35 @@ public class AuthServiceImpl implements AuthService {
     public void logout(String accessToken) {
         //删除⽤户信息
         tokenStoreCache.deleteUser(accessToken);
+    }
+
+    @Override
+    public MobileLoginVO register(UserRegisterDTO user) {
+        UserEntity entity = UserConvert.INSTANCE.convert(user);
+        entity.setUsername(user.getUsername());
+        entity.setPassword(passwordEncoder.encode(user.getPassword()));
+        entity.setMobile(user.getMobile());
+        entity.setNickname("新用户");
+        entity.setAvatar("https://mqxu-oss.oss-cn-hangzhou.aliyuncs.com/avatar/1.jpg");
+        userService.save(entity);
+
+        Authentication authentication;
+        try {
+            //⽤户认证
+            authentication = authenticationManager.authenticate(new MobileAuthenticationToken(user.getMobile(), user.getCode()));
+        } catch (BadCredentialsException e) {
+            throw new ServerException("手机号或验证码错误");
+        }
+        //⽤户信息
+        UserDetail userDetail = (UserDetail) authentication.getPrincipal();
+        //⽣成accessToken
+        String accessToken = JwtUtil.createToken(userDetail.getId());
+        //保存⽤户信息到缓存
+        tokenStoreCache.saveUser(accessToken, userDetail);
+        MobileLoginVO mobileLoginVO = new MobileLoginVO();
+        mobileLoginVO.setId(userDetail.getId());
+        mobileLoginVO.setAccessToken(accessToken);
+        mobileLoginVO.setMobile(user.getMobile());
+        return mobileLoginVO;
     }
 }

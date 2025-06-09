@@ -1,12 +1,15 @@
 package top.gx.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.gx.convert.UserConvert;
+import top.gx.dao.TUserTenantDao;
 import top.gx.dao.UserDao;
 import top.gx.dto.UserDTO;
+import top.gx.entity.TUserTenantEntity;
 import top.gx.entity.UserEntity;
 import top.gx.framework.common.exception.ServerException;
 import top.gx.framework.mybatis.service.impl.BaseServiceImpl;
@@ -16,6 +19,8 @@ import top.gx.framework.security.utils.TokenUtils;
 import top.gx.service.UserService;
 import top.gx.vo.UserVO;
 
+import java.util.List;
+
 /**
  * @author Lenovo
  */
@@ -24,6 +29,8 @@ import top.gx.vo.UserVO;
 public class UserServiceImpl  extends BaseServiceImpl<UserDao, UserEntity> implements UserService {
     private final TokenStoreCache tokenStoreCache;
     private final PasswordEncoder passwordEncoder;
+    private final TUserTenantDao tUserTenantDao;
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void save(UserDTO dto) {
@@ -41,6 +48,7 @@ public class UserServiceImpl  extends BaseServiceImpl<UserDao, UserEntity> imple
         //保存⽤户
         baseMapper.insert(entity);
     }
+
     @Override
     public void update(UserDTO dto) {
         UserEntity entity = UserConvert.INSTANCE.convert(dto);
@@ -53,14 +61,47 @@ public class UserServiceImpl  extends BaseServiceImpl<UserDao, UserEntity> imple
         //删除⽤户缓存
         tokenStoreCache.deleteUser(TokenUtils.getAccessToken());
     }
+
     @Override
     public UserVO getByMobile(String mobile) {
         UserEntity user = baseMapper.getByMobile(mobile);
         return UserConvert.INSTANCE.convert(user);
     }
+
+    @Override
+    public UserVO getByUsername(String username) {
+        UserEntity user = baseMapper.getByUsername(username);
+        return UserConvert.INSTANCE.convert(user);
+    }
+
     @Override
     public UserVO getById(Long id) {
         UserEntity user = baseMapper.getById(id);
         return UserConvert.INSTANCE.convert(user);
+    }
+
+    @Override
+    public void bindTenant(String tenantId, Long userId) {
+        // 检查是否存在该用户和租户的关联记录
+        QueryWrapper<TUserTenantEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId);
+        queryWrapper.eq("tenant_id", tenantId);
+
+        List<TUserTenantEntity> list = tUserTenantDao.selectList(queryWrapper);
+
+        if (list.isEmpty()) {
+            TUserTenantEntity entity = new TUserTenantEntity();
+            entity.setUserId(userId);
+            entity.setTenantId(tenantId);
+            entity.setDeleted(0);
+            int result = tUserTenantDao.insert(entity);
+            if (result > 0) {
+                System.out.println("用户绑定成功");
+            } else {
+                System.out.println("用户绑定失败");
+            }
+        } else {
+            throw new RuntimeException("该用户已被其他管理员绑定");
+        }
     }
 }
