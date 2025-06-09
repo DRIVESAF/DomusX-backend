@@ -8,3 +8,4 @@ auth:
     - /api/note/category
     - /api/note/*
     - /api/user/getUserBuId
+    - /api/user/register

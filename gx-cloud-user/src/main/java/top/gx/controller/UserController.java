@@ -9,9 +9,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import top.gx.convert.UserConvert;
 import top.gx.dto.UserDTO;
+import top.gx.dto.UserRegisterDTO;
 import top.gx.framework.common.utils.Result;
 import top.gx.framework.security.user.SecurityUser;
+import top.gx.service.AuthService;
 import top.gx.service.UserService;
+import top.gx.vo.MobileLoginVO;
 import top.gx.vo.UserVO;
 
 /**
@@ -24,6 +27,7 @@ import top.gx.vo.UserVO;
 public class UserController {
     private final UserService sysUserService;
     private final PasswordEncoder passwordEncoder;
+    private final AuthService authService;
     @GetMapping("info")
     @Operation(summary = "获取用户信息")
     public Result<UserVO> getUserInfo() {
@@ -33,7 +37,7 @@ public class UserController {
 
     @PostMapping("register")
     @Operation(summary = "注册用户")
-    public Result<String> register(@RequestBody @Valid UserDTO dto) {
+    public Result<String> register(@RequestBody @Valid UserDTO dto,@RequestParam String tenantId) {
         //新增密码不能为空
         if (StrUtil.isBlank(dto.getPassword())) {
             return Result.error(" 密码不能为空 ");
@@ -42,8 +46,20 @@ public class UserController {
         dto.setPassword(passwordEncoder.encode(dto.getPassword()));
         //保存
         sysUserService.save(dto);
+        UserVO userVO = sysUserService.getByUsername(dto.getUsername());
+        sysUserService.bindTenant(tenantId,userVO.getId());
         return Result.ok();
     }
+
+//    @PostMapping("register")
+//    @Operation(summary = "注册")
+//    public Result<MobileLoginVO> register(@RequestBody UserRegisterDTO register) {
+//        MobileLoginVO mobileLoginVO = authService.register(register);
+//        UserVO userVO = sysUserService.getByMobile(register.getMobile());
+//        sysUserService.bindTenant(register.getTenantId(),userVO.getId());
+//
+//        return Result.ok(mobileLoginVO);
+//    }
 
     @PutMapping("update")
     @Operation(summary = "修改用户信息")
@@ -54,13 +70,13 @@ public class UserController {
 
     @GetMapping("getUserById")
     @Operation(summary = "根据id获取用户")
-        public Result<UserVO> getUserById(Long id) {
+    public Result<UserVO> getUserById(Long id) {
         return Result.ok(sysUserService.getById(id));
     }
 
     @GetMapping("getUserByMobile")
     @Operation(summary = "根据手机号获取用户")
-        public Result<UserVO> getUserByMobile(String mobile) {
+    public Result<UserVO> getUserByMobile(String mobile) {
         return Result.ok(sysUserService.getByMobile(mobile));
     }
 }

@@ -12,5 +12,7 @@ public interface UserService extends BaseService<UserEntity> {
     void save(UserDTO vo);
     void update(UserDTO dto);
     UserVO getByMobile(String mobile);
+    UserVO getByUsername(String username);
     UserVO getById(Long id);
+    void bindTenant(String tenantId,Long userId);
 }

@@ -4,6 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import top.gx.dto.MobileLoginDTO;
 import top.gx.dto.UserDTO;
+import top.gx.dto.UserRegisterDTO;
 import top.gx.entity.UserEntity;
 import top.gx.framework.security.user.UserDetail;
 import top.gx.vo.UserVO;
@@ -19,4 +20,5 @@ public interface UserConvert {
     UserVO convert(UserDetail userDetail);
     UserEntity convert(MobileLoginDTO dto);
     UserDetail convertDetail(UserEntity entity);
+    UserEntity convert(UserRegisterDTO user);
 }
